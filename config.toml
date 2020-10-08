@@ -1,0 +1,4 @@
+baseURL = "http://music.loverad.io/"
+languageCode = "en-us"
+title = "Music Database"
+theme = "default"
