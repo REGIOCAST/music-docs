@@ -284,7 +284,7 @@ body.home h2 {
     font-size: 16px; }
   .content .reference .icon {
     margin-right: 16px;
-    background: url("/icons/arrow-right.svg") no-repeat center center;
+    background: url("/music-docs/icons/arrow-right.svg") no-repeat center center;
     width: 24px; }
   .content .reference:hover {
     border-color: #0086b3; }
@@ -757,7 +757,7 @@ footer section {
     padding-top: 20px;
     border-top: 1px solid #e2e8f0; }
   .sidebar .back {
-    background: url(/icons/back.svg) no-repeat left top;
+    background: url(/music-docs/icons/back.svg) no-repeat left top;
     background-size: 13px 13px;
     padding: 0px;
     padding-left: 16px;
@@ -858,7 +858,7 @@ footer section {
     padding: 0px 20px;
     padding-left: 64px;
     width: 100%;
-    background: url("/icons/search.svg") left center no-repeat;
+    background: url("/music-docs/icons/search.svg") left center no-repeat;
     background-size: 14px 14px;
     background-position: 32px 20px; }
   .search input:focus {
