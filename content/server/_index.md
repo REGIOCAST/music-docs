@@ -4,10 +4,8 @@ title: Server
 author: juliankoehn
 header: true
 weight: 1
-description: |
-  Configuration and Installation of the music-server
+type: redirect
+redirect: /music-docs/server/overview/
+separator: true
 ---
 
-This section of the documentation will help you install and configure the Music Server.
-
-{{< cards >}}

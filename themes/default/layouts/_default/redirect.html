@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="refresh" content="0;URL='{{ .Params.redirect }}'" />
+    <meta http-equiv="refresh" content="0;URL='{{ .Site.BaseURL }} {{ .Params.redirect }}'" />
 </head>
 
 <body>
-    Redirecting to <a href="{{ .Params.redirect }}">{{ .Params.redirect }}</a>
+    Redirecting to <a href="{{ .Site.BaseURL }} {{ .Params.redirect }}">{{ .Params.redirect }}</a>
 </body>
 
 </html>
