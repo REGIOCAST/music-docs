@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head><title>Album Detach Artist | Music</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="copyright" content="">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Kanit:300,400,500,700">
+<link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:400,500,700&amp;display=swap">
+<link rel="stylesheet" type="text/css" href="/sass/main.963f90ffabca94e487adc363eddf770393db410df27e545e7ae39cb814755e4a.css" integrity="sha256-lj&#43;Q/6vKlOSHrcNj7d93A5PbQQ3yflReeuOcuBR1Xko=">
+
+</style></head>
+
+<body><header>
+    <button class="menu" aria-hidden="true"></button>
+    <a class="logo" href="/" aria-label="Documentation"></a>
+</header><div class="search">
+    <input id="search" type="text" placeholder="Search Documentation..." />
+</div><div class="sidebar">
+    <a class="logo" href="/" aria-label="Home">Docs</a>
+
+    <div class="menu" aria-hidden="true">
+        <button class="close"></button>
+    </div>
+
+    
+
+    <nav>
+        <a href="/" class="back">Home</a>
+        
+        
+        
+
+        <h1 class="section-header"
+            >
+            API Reference</h1>
+        <ul>
+
+            
+            
+
+            
+            <li
+                class="sidebar-item">
+                <a href="/api/overview/" class="">Overview</a></li>
+            
+            
+            
+
+            
+            <li class="category">Album Endpoint</li>
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/albums/album_attach_artist/"
+                    class="">Album Attach Artist</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/albums/album_attach_song/"
+                    class="">Album Attach Song</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/albums/album_create/"
+                    class="">Album Create</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/albums/album_delete/"
+                    class="">Album Delete</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item selected"><a href="/api/albums/album_detach_artist/"
+                    class="selected">Album Detach Artist</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/albums/album_detach_song/"
+                    class="">Album Detach Song</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/albums/album_find/"
+                    class="">Album Find</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/albums/album_list/"
+                    class="">Album List</a></li>
+            
+            
+            
+            
+            
+
+            
+            <li class="category">Artist Endpoint</li>
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/artists/artist_create/"
+                    class="">Artist Create</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/artists/artist_delete/"
+                    class="">Artist Delete</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/artists/artist_find/"
+                    class="">Artist Find</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/artists/artist_list/"
+                    class="">Artist List</a></li>
+            
+            
+            
+            
+            <li class="sidebar-item"><a href="/api/artists/artist_update/"
+                    class="">Artist Update</a></li>
+            
+            
+            
+            
+            
+
+            
+            <li class="category">Artwork Endpoint</li>
+            
+            
+            
+            
+
+            
+            <li class="category">Song Endpoint</li>
+            
+            
+            
+        </ul>
+    </nav>
+</div><main class="body">
+    
+
+<section>
+    <header>
+        <h1>Album Detach Artist</h1>
+    </header>
+    <article class="content">
+        
+        <p>Detach an Artist from given Album.</p>
+<pre><code>DELETE /api/albums/{albumid}/artists
+</code></pre><p>Example Body Params:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;artists&#34;</span>: [
+        <span style="color:#e6db74">&#34;1607d150-861c-4782-8c1b-abe58254373b&#34;</span>
+    ] 
+}
+</code></pre></div><p>Response is <code>204 NoContent</code></p>
+
+    </article>
+</section>
+    <aside>
+    
+</aside>
+</main><footer>
+    
+
+    
+
+    
+
+    
+
+    <section>
+        <h2>Questions?</h2>
+        <p>We are always happy to help with questions you might have. <a
+                href="javascript:document.querySelector('#search').focus()">Search</a> our documentation or check out
+            answers to common questions.
+        </p>
+    </section>
+    <section>
+        <p>Is there a mistake on this page? Please <a href="https://github.com/REGIOCAST/music-docs">let us know</a> or edit <a
+                href="https://github.com/REGIOCAST/music-docs/blob/master/content/api/albums/album_detach_artist.md">this page</a>.</p>
+    </section>
+</footer>
+<div class="overlay" aria-hidden="true"></div>
+<script>
+    function toggle(el) {
+        if (el.classList.contains("open")) {
+            el.classList.remove("open");
+        } else {
+            el.classList.add("open");
+        }
+    };
+    function toggleSidebar(e) {
+        toggle(document.querySelector(".sidebar"));
+        toggle(document.querySelector(".overlay"));
+    }
+    document.querySelector(".overlay").addEventListener("click", toggleSidebar);
+    document.querySelector("body > header .menu").addEventListener("click", toggleSidebar);
+    document.querySelector(".sidebar .close").addEventListener("click", toggleSidebar);
+</script>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>
