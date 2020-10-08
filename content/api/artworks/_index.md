@@ -7,4 +7,6 @@ description: |
   The Artwork Endpoint.
 ---
 
+Artworks stores CoverData for `Songs` and `Albums`.
+
 {{< cards >}}

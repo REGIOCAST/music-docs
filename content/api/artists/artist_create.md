@@ -4,14 +4,34 @@ title = "Artist Create"
 description = "Endpoint to create a new Artist"
 +++
 
-Create a new Artist with Sub-Artists.
+Create a new Artist.
 
 ```
 POST /api/artists
 ```
 
-As you see, you are able to nest sub-artists on this Endpoint. The API will create all nested relations by itself.
+*Request*
+```json
+{
+    "name": "Red Hot Chili Peppers",
+}
+```
 
+*Response*
+```json
+{
+    "id": "33244a4b-dfc5-4317-9039-d2cebfb12782",
+    "name": "Red Hot Chili Peppers",
+    "createdAt": "2020-10-06T13:32:24.213112+02:00",
+    "updatedAt": "2020-10-06T13:32:24.214982+02:00"
+}
+```
+
+This Query will just create a new Artist (Band), but sometimes you want to create the entire band at once. You can use `Upsert` for this.
+
+All Band members will be created and the relations will be auto-generated. Example:
+
+*Request*
 ```json
 {
     "name": "Red Hot Chili Peppers",
@@ -32,63 +52,38 @@ As you see, you are able to nest sub-artists on this Endpoint. The API will crea
 }
 ```
 
-Example Response Body:
-
-```json {linenos=table}
+*Response* 
+```json
 {
-    "id": "1607d150-861c-4782-8c1b-abe58254373b",
+    "id": "33244a4b-dfc5-4317-9039-d2cebfb12782",
     "members": [
         {
-            "id": "b878ddf3-8c9e-42d5-8c73-bd7f2fd5e530",
-            "members": null,
-            "albums": null,
-            "ipi": "",
-            "isni": "",
+            "id": "836de2fb-cb0c-4299-8cc8-e13a074d196e",
             "name": "Anthony Kiedis",
-            "sortName": "",
-            "createdAt": "2020-10-08T12:29:17.911585+02:00",
-            "updatedAt": "2020-10-08T12:29:17.911585+02:00"
+            "createdAt": "2020-10-06T13:32:24.213784+02:00",
+            "updatedAt": "2020-10-06T13:32:24.213784+02:00"
         },
         {
-            "id": "22188e6c-371f-4a83-bbaa-4d0ff1e1aeb3",
-            "members": null,
-            "albums": null,
-            "ipi": "",
-            "isni": "",
+            "id": "0ba86437-61bf-4f25-905a-526a76cb09a4",
             "name": "Michael „Flea“ Balzary",
-            "sortName": "",
-            "createdAt": "2020-10-08T12:29:17.911585+02:00",
-            "updatedAt": "2020-10-08T12:29:17.911585+02:00"
+            "createdAt": "2020-10-06T13:32:24.213784+02:00",
+            "updatedAt": "2020-10-06T13:32:24.213784+02:00"
         },
         {
-            "id": "e1e84cbd-017b-4fb8-b1e0-b698cdfb5341",
-            "members": null,
-            "albums": null,
-            "ipi": "",
-            "isni": "",
+            "id": "609daad8-4052-4173-840c-1e72cc87d180",
             "name": "Chad Smith",
-            "sortName": "",
-            "createdAt": "2020-10-08T12:29:17.911585+02:00",
-            "updatedAt": "2020-10-08T12:29:17.911585+02:00"
+            "createdAt": "2020-10-06T13:32:24.213784+02:00",
+            "updatedAt": "2020-10-06T13:32:24.213784+02:00"
         },
         {
-            "id": "40e0b6e2-df93-4e77-8486-59a2c5d2e376",
-            "members": null,
-            "albums": null,
-            "ipi": "",
-            "isni": "",
+            "id": "cd9c7e6a-806e-4d1a-b0f4-bdae9552effd",
             "name": "John Frusciante",
-            "sortName": "",
-            "createdAt": "2020-10-08T12:29:17.911585+02:00",
-            "updatedAt": "2020-10-08T12:29:17.911585+02:00"
+            "createdAt": "2020-10-06T13:32:24.213784+02:00",
+            "updatedAt": "2020-10-06T13:32:24.213784+02:00"
         }
     ],
-    "albums": null,
-    "ipi": "",
-    "isni": "",
     "name": "Red Hot Chili Peppers",
-    "sortName": "",
-    "createdAt": "2020-10-08T12:29:17.910156+02:00",
-    "updatedAt": "2020-10-08T12:29:17.912486+02:00"
+    "createdAt": "2020-10-06T13:32:24.213112+02:00",
+    "updatedAt": "2020-10-06T13:32:24.214982+02:00"
 }
 ```

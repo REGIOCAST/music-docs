@@ -10,12 +10,12 @@ Attach a Song to given Album.
   POST /api/albums/{albumid}/songs
   ```
 
-Example Body Params:
+You can use `SongId` to attach a single song or `songs` to attach many songs.
+
 ```json
 {
-    "songs": [
-        "1607d150-861c-4782-8c1b-abe58254373b"
-    ] 
+    "songId": "823a18d1-6203-4e64-b16a-de2ae6876d62",
+    "songs": ["823a18d1-6203-4e64-b16a-de2ae6876d62"]
 }
 ```
 

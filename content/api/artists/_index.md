@@ -7,4 +7,6 @@ description: |
   The Artist Endpoint.
 ---
 
+An Artist can have many related Artists. A Band `Red Hot Chili Peppers` can have many Artists like `Josh Klinghoffer `. 
+
 {{< cards >}}
