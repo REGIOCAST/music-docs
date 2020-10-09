@@ -1,0 +1,269 @@
+<!doctype html><html><head><title>C# | Music</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name=copyright content><meta name=robots content="noindex"><link rel=icon type=image/png sizes=32x32 href=/music-docs/favicon.png><link rel=stylesheet type=text/css href=https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css><link rel=stylesheet type=text/css href="https://fonts.googleapis.com/css?family=Kanit:300,400,500,700"><link rel=stylesheet type=text/css href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500|Roboto:400,500,700&display=swap"><link rel=stylesheet type=text/css href=https://regiocast.github.io/music-docs/sass/main.ce6025af7ed0748385757de457463d1967641cc06a17ed96d801ad35a480ff47.css integrity="sha256-zmAlr37QdIOFdX3kV0Y9GWdkHMBqF+2W2AGtNaSA/0c="></style></head><body><header><button class=menu aria-hidden=true></button>
+<a class=logo href=/music-docs aria-label=Documentation></a></header><div class=search><input id=search type=text placeholder="Search Documentation..."></div><div class=sidebar><a class=logo href=/music-docs aria-label=Home>Docs</a><div class=menu aria-hidden=true><button class=close></button></div><nav><a href=/music-docs class=back>Home</a><h1 class=section-header>Swagger</h1><ul><li class="sidebar-item selected"><a href=/music-docs/swagger/csharp/ class=selected>C#</a></li></ul></nav></div><main class=body><section><header><h1>C#</h1></header><article class=content><p>Music generates documentation with the help of Swagger. You can use the <a href=https://github.com/swagger-api/swagger-codegen>swagger-codegen</a> tool from the swagger project to generate:</p><ul><li>RestClient for the HTTP calls</li><li>Newtonsoft.Json for JSON marshalling</li><li>.NET DataContract for the models.</li></ul><p>You can either download the <a href=https://swagger.io/tools/swagger-codegen/download/>cli app</a> or use the <a href=https://editor.swagger.io/>online editor</a>. The Album model look like this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-csharp data-lang=csharp><span style=color:#66d9ef>using</span> System;
+<span style=color:#66d9ef>using</span> System.Linq;
+<span style=color:#66d9ef>using</span> System.IO;
+<span style=color:#66d9ef>using</span> System.Text;
+<span style=color:#66d9ef>using</span> System.Text.RegularExpressions;
+<span style=color:#66d9ef>using</span> System.Collections;
+<span style=color:#66d9ef>using</span> System.Collections.Generic;
+<span style=color:#66d9ef>using</span> System.Collections.ObjectModel;
+<span style=color:#66d9ef>using</span> System.Runtime.Serialization;
+<span style=color:#66d9ef>using</span> Newtonsoft.Json;
+<span style=color:#66d9ef>using</span> Newtonsoft.Json.Converters;
+<span style=color:#66d9ef>using</span> System.ComponentModel.DataAnnotations;
+<span style=color:#66d9ef>using</span> SwaggerDateConverter = IO.Swagger.Client.SwaggerDateConverter;
+
+<span style=color:#66d9ef>namespace</span> IO.Swagger.Model
+{
+    <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>    <span style=color:#75715e>/// CoreAlbum
+</span><span style=color:#75715e></span>    <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>    [DataContract]</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>partial</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CoreAlbum</span> :  IEquatable&lt;CoreAlbum&gt;, IValidatableObject
+    {
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Initializes a new instance of the &lt;see cref=&#34;CoreAlbum&#34; /&gt; class.
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;copyright&#34;&gt;The copyright text..&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;createdAt&#34;&gt;createdAt.&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;id&#34;&gt;id.&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;isComplete&#34;&gt;(Required) Indicates whether the album is complete. If true, the album is complete; otherwise, it is not. An album is complete if it contains all its tracks and songs..&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;isSingle&#34;&gt;(Required) Indicates whether the album contains a single song..&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;name&#34;&gt;(Required) The localized name of the album..&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;recordLabel&#34;&gt;(Required) The name of the record label for the album..&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;releaseDate&#34;&gt;(Required) The release date of the album in YYYY-MM-DD format..&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;trackCount&#34;&gt;(Required) The number of tracks..&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;updatedAt&#34;&gt;updatedAt.&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>public</span> CoreAlbum(<span style=color:#66d9ef>string</span> copyright = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>string</span>), <span style=color:#66d9ef>string</span> createdAt = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>string</span>), <span style=color:#66d9ef>string</span> id = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>string</span>), <span style=color:#66d9ef>bool?</span> isComplete = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>bool?</span>), <span style=color:#66d9ef>bool?</span> isSingle = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>bool?</span>), <span style=color:#66d9ef>string</span> name = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>string</span>), <span style=color:#66d9ef>string</span> recordLabel = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>string</span>), <span style=color:#66d9ef>string</span> releaseDate = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>string</span>), <span style=color:#66d9ef>int?</span> trackCount = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>int?</span>), <span style=color:#66d9ef>string</span> updatedAt = <span style=color:#66d9ef>default</span>(<span style=color:#66d9ef>string</span>))
+        {
+            <span style=color:#66d9ef>this</span>.Copyright = copyright;
+            <span style=color:#66d9ef>this</span>.CreatedAt = createdAt;
+            <span style=color:#66d9ef>this</span>.Id = id;
+            <span style=color:#66d9ef>this</span>.IsComplete = isComplete;
+            <span style=color:#66d9ef>this</span>.IsSingle = isSingle;
+            <span style=color:#66d9ef>this</span>.Name = name;
+            <span style=color:#66d9ef>this</span>.RecordLabel = recordLabel;
+            <span style=color:#66d9ef>this</span>.ReleaseDate = releaseDate;
+            <span style=color:#66d9ef>this</span>.TrackCount = trackCount;
+            <span style=color:#66d9ef>this</span>.UpdatedAt = updatedAt;
+        }
+        
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// The copyright text.
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;value&gt;The copyright text.&lt;/value&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;copyright&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> Copyright { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Gets or Sets CreatedAt
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;createdAt&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> CreatedAt { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Gets or Sets Id
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;id&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> Id { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// (Required) Indicates whether the album is complete. If true, the album is complete; otherwise, it is not. An album is complete if it contains all its tracks and songs.
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;value&gt;(Required) Indicates whether the album is complete. If true, the album is complete; otherwise, it is not. An album is complete if it contains all its tracks and songs.&lt;/value&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;isComplete&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>bool?</span> IsComplete { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// (Required) Indicates whether the album contains a single song.
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;value&gt;(Required) Indicates whether the album contains a single song.&lt;/value&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;isSingle&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>bool?</span> IsSingle { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// (Required) The localized name of the album.
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;value&gt;(Required) The localized name of the album.&lt;/value&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;name&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> Name { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// (Required) The name of the record label for the album.
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;value&gt;(Required) The name of the record label for the album.&lt;/value&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;recordLabel&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> RecordLabel { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// (Required) The release date of the album in YYYY-MM-DD format.
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;value&gt;(Required) The release date of the album in YYYY-MM-DD format.&lt;/value&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;releaseDate&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> ReleaseDate { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// (Required) The number of tracks.
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;value&gt;(Required) The number of tracks.&lt;/value&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;trackCount&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int?</span> TrackCount { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Gets or Sets UpdatedAt
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span><span style=color:#a6e22e>        [DataMember(Name=&#34;updatedAt&#34;, EmitDefaultValue=false)]</span>
+        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>string</span> UpdatedAt { <span style=color:#66d9ef>get</span>; <span style=color:#66d9ef>set</span>; }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Returns the string presentation of the object
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;String presentation of the object&lt;/returns&gt;
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>string</span> ToString()
+        {
+            <span style=color:#66d9ef>var</span> sb = <span style=color:#66d9ef>new</span> StringBuilder();
+            sb.Append(<span style=color:#e6db74>&#34;class CoreAlbum {\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  Copyright: &#34;</span>).Append(Copyright).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  CreatedAt: &#34;</span>).Append(CreatedAt).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  Id: &#34;</span>).Append(Id).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  IsComplete: &#34;</span>).Append(IsComplete).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  IsSingle: &#34;</span>).Append(IsSingle).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  Name: &#34;</span>).Append(Name).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  RecordLabel: &#34;</span>).Append(RecordLabel).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  ReleaseDate: &#34;</span>).Append(ReleaseDate).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  TrackCount: &#34;</span>).Append(TrackCount).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;  UpdatedAt: &#34;</span>).Append(UpdatedAt).Append(<span style=color:#e6db74>&#34;\n&#34;</span>);
+            sb.Append(<span style=color:#e6db74>&#34;}\n&#34;</span>);
+            <span style=color:#66d9ef>return</span> sb.ToString();
+        }
+  
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Returns the JSON string presentation of the object
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;JSON string presentation of the object&lt;/returns&gt;
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>virtual</span> <span style=color:#66d9ef>string</span> ToJson()
+        {
+            <span style=color:#66d9ef>return</span> JsonConvert.SerializeObject(<span style=color:#66d9ef>this</span>, Formatting.Indented);
+        }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Returns true if objects are equal
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;input&#34;&gt;Object to be compared&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;Boolean&lt;/returns&gt;
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>bool</span> Equals(<span style=color:#66d9ef>object</span> input)
+        {
+            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.Equals(input <span style=color:#66d9ef>as</span> CoreAlbum);
+        }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Returns true if CoreAlbum instances are equal
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;input&#34;&gt;Instance of CoreAlbum to be compared&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;Boolean&lt;/returns&gt;
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>bool</span> Equals(CoreAlbum input)
+        {
+            <span style=color:#66d9ef>if</span> (input == <span style=color:#66d9ef>null</span>)
+                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+
+            <span style=color:#66d9ef>return</span> 
+                (
+                    <span style=color:#66d9ef>this</span>.Copyright == input.Copyright ||
+                    (<span style=color:#66d9ef>this</span>.Copyright != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.Copyright.Equals(input.Copyright))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.CreatedAt == input.CreatedAt ||
+                    (<span style=color:#66d9ef>this</span>.CreatedAt != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.CreatedAt.Equals(input.CreatedAt))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.Id == input.Id ||
+                    (<span style=color:#66d9ef>this</span>.Id != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.Id.Equals(input.Id))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.IsComplete == input.IsComplete ||
+                    (<span style=color:#66d9ef>this</span>.IsComplete != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.IsComplete.Equals(input.IsComplete))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.IsSingle == input.IsSingle ||
+                    (<span style=color:#66d9ef>this</span>.IsSingle != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.IsSingle.Equals(input.IsSingle))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.Name == input.Name ||
+                    (<span style=color:#66d9ef>this</span>.Name != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.Name.Equals(input.Name))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.RecordLabel == input.RecordLabel ||
+                    (<span style=color:#66d9ef>this</span>.RecordLabel != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.RecordLabel.Equals(input.RecordLabel))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.ReleaseDate == input.ReleaseDate ||
+                    (<span style=color:#66d9ef>this</span>.ReleaseDate != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.ReleaseDate.Equals(input.ReleaseDate))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.TrackCount == input.TrackCount ||
+                    (<span style=color:#66d9ef>this</span>.TrackCount != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.TrackCount.Equals(input.TrackCount))
+                ) &amp;&amp; 
+                (
+                    <span style=color:#66d9ef>this</span>.UpdatedAt == input.UpdatedAt ||
+                    (<span style=color:#66d9ef>this</span>.UpdatedAt != <span style=color:#66d9ef>null</span> &amp;&amp;
+                    <span style=color:#66d9ef>this</span>.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// Gets the hash code
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;Hash code&lt;/returns&gt;
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>int</span> GetHashCode()
+        {
+            <span style=color:#66d9ef>unchecked</span> <span style=color:#75715e>// Overflow is fine, just wrap
+</span><span style=color:#75715e></span>            {
+                <span style=color:#66d9ef>int</span> hashCode = <span style=color:#ae81ff>41</span>;
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.Copyright != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.Copyright.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.CreatedAt != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.CreatedAt.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.Id != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.Id.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.IsComplete != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.IsComplete.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.IsSingle != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.IsSingle.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.Name != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.Name.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.RecordLabel != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.RecordLabel.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.ReleaseDate != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.ReleaseDate.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.TrackCount != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.TrackCount.GetHashCode();
+                <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.UpdatedAt != <span style=color:#66d9ef>null</span>)
+                    hashCode = hashCode * <span style=color:#ae81ff>59</span> + <span style=color:#66d9ef>this</span>.UpdatedAt.GetHashCode();
+                <span style=color:#66d9ef>return</span> hashCode;
+            }
+        }
+
+        <span style=color:#75715e>/// &lt;summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// To validate all properties of the instance
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;/summary&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;param name=&#34;validationContext&#34;&gt;Validation context&lt;/param&gt;
+</span><span style=color:#75715e></span>        <span style=color:#75715e>/// &lt;returns&gt;Validation Result&lt;/returns&gt;
+</span><span style=color:#75715e></span>        IEnumerable&lt;System.ComponentModel.DataAnnotations.ValidationResult&gt; IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            <span style=color:#66d9ef>yield</span> <span style=color:#66d9ef>break</span>;
+        }
+    }
+
+}
+</code></pre></div></article></section><aside><nav class=table-of-contents><header>On This Page</header><nav id=TableOfContents></nav></nav></aside></main><footer><section><h2>Questions?</h2><p>We are always happy to help with questions you might have. <a href="javascript:document.querySelector('#search').focus()">Search</a> our documentation or check out
+answers to common questions.</p></section><section><p>Is there a mistake on this page? Please <a href=https://github.com/REGIOCAST/music-docs>let us know</a> or edit <a href=https://github.com/REGIOCAST/music-docs/blob/master/content/swagger/csharp.md>this page</a>.</p></section></footer><div class=overlay aria-hidden=true></div><script>function toggle(el){if(el.classList.contains("open")){el.classList.remove("open");}else{el.classList.add("open");}};function toggleSidebar(e){toggle(document.querySelector(".sidebar"));toggle(document.querySelector(".overlay"));}
+document.querySelector(".overlay").addEventListener("click",toggleSidebar);document.querySelector("body > header .menu").addEventListener("click",toggleSidebar);document.querySelector(".sidebar .close").addEventListener("click",toggleSidebar);</script><script type=text/javascript src=https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js></script><script type=text/javascript></script></body></html>
