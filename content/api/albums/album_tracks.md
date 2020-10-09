@@ -1,7 +1,7 @@
 +++
 date = "2000-01-01T00:00:00+00:02"
 title = "Album Tracks"
-description = "Handle, edit and manipulate a Tracks of a Album"
+description = "Handle, edit and manipulate a Tracks of an Album"
 toc = true
 +++
 
@@ -83,3 +83,15 @@ GET /api/albums/{albumID}/tracks
     }
 ]
 ```
+
+
+## Delete Track Relation
+
+You are not allowed to `DELETE` the Track at this endpoint.
+This endpoint handles the Relationship between an existing Album and a Track.
+
+```
+GET /api/albums/{albumID}/tracks/{trackID}
+```
+
+*Response* is `204 No Content`
