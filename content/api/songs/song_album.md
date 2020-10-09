@@ -13,7 +13,7 @@ This endpoint allows you to Link an `Album -> Song` relation or create a new Art
 POST /api/songs/{songID}/albums
 ```
 
-If the Album you want to link you can *POST*
+If the Album you want to link exists you can *POST*
 
 ```
 {
