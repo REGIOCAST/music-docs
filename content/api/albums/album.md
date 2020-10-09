@@ -5,24 +5,9 @@ description = "Shows all available API Operatings for `album`"
 toc = true
 +++
 
-## The Album Model
+# Album
 
-`copyright`: The copyright text.
-
-`isComplete`: (Required) Indicates whether the album is complete.
-        If true, the album is complete; otherwise, it is not. An album is complete if it contains all its tracks and songs.
-        default is false
-
-`isSingle`: (Required) Indicates whether the album contains a single song.
- default is false
-
- `name`: (Required) The localized name of the album.
-
- `recordLabel`: (Required) The name of the record label for the album.
-
-`releaseDate`: (Required) The release date of the album in YYYY-MM-DD format.
-
-`trackCount`: (Required) The number of tracks.
+## The Model
 
 ```go
 type Album struct {
@@ -39,8 +24,41 @@ type Album struct {
 	}
 ```
 
+### Copyright
 
-## Create a new Album.
+The copyright text.
+
+### IsComplete
+
+`(Required)` Indicates whether the album is complete.
+        If true, the album is complete; otherwise, it is not. An album is complete if it contains all its tracks and songs.
+        default is false
+
+### IsSingle
+
+`(Required)` Indicates whether the album contains a single song.
+ default is false
+
+### Name
+
+`(Required)` The localized name of the album.
+
+### RecordLabel
+
+`(Required)` The name of the record label for the album.
+
+### ReleaseDate
+
+`(Required)` The release date of the album in YYYY-MM-DD format.
+
+### TrackCount
+
+ The number of tracks.
+
+
+## CRUD Operations
+
+### Create a new Album.
 
 ```
 POST /api/albums
@@ -72,7 +90,7 @@ Example Response Body:
 }
 ```
 
-## Find one Album
+### Find one Album
 
   ```
   GET /api/albums/{id}
@@ -92,7 +110,7 @@ Example Response Body:
 }
 ```
 
-## Lists all Albums
+### Lists all Albums
 
   ```
   GET /api/albums
@@ -126,7 +144,7 @@ Example Response Body:
 ]
 ```
 
-## Delete one Album
+### Delete one Album
 
   ```
   DELETE /api/albums/{id}
