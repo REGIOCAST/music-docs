@@ -219,9 +219,9 @@ body.home h2 {
     user-select: none;
     margin-top: 0px; }
   .content .cards a:hover {
-    border-color: #0086b3; }
+    border-color: #003555; }
     .content .cards a:hover .name {
-      color: #0086b3; }
+      color: #003555; }
   .content .cards .name {
     font-weight: 500;
     color: #1a202c; }
@@ -264,7 +264,7 @@ body.home h2 {
     grid-column-gap: 12px;
     grid-row-gap: 0px; }
   .cards.cards-with-icons a:hover {
-    border-color: #0086b3;
+    border-color: #003555;
     cursor: pointer; }
 
 .content .reference {
@@ -279,7 +279,7 @@ body.home h2 {
   padding: 16px;
   user-select: none; }
   .content .reference .name {
-    color: #0086b3;
+    color: #003555;
     flex: 1 1 auto;
     font-size: 16px; }
   .content .reference .icon {
@@ -287,7 +287,7 @@ body.home h2 {
     background: url("/music-docs/icons/arrow-right.svg") no-repeat center center;
     width: 24px; }
   .content .reference:hover {
-    border-color: #0086b3; }
+    border-color: #003555; }
 
 .language-diff .gd,
 .language-patch .gd {
@@ -371,7 +371,7 @@ body.home h2 {
     margin: 24px 0px;
     color: #1a202c; }
   .content a, .content a:visited {
-    color: #0086b3;
+    color: #003555;
     text-decoration: none; }
     .content a:hover, .content a:visited:hover {
       text-decoration: underline; }
@@ -389,10 +389,10 @@ body.home h2 {
     font-family: "Roboto Mono", monospace;
     font-size: 14px;
     border-radius: 4px;
-    color: #3c4257;
+    color: #be1050;
     font-weight: 400;
     background: #f7fafc;
-    border: 1px solid #e3e8ee;
+    border: 1px solid #dddddd;
     padding: 0px 3px;
     box-sizing: border-box;
     line-height: 18px; }
@@ -681,7 +681,7 @@ footer section {
     margin: 64px 0px 20px 0px; }
   footer section a, footer section a:visited {
     text-decoration: none;
-    color: #0086b3; }
+    color: #003555; }
   footer section h2 {
     color: #f7fafc;
     font: 400 20px Kanit;
@@ -778,10 +778,10 @@ footer section {
   position: relative;
   text-decoration: none; }
   .sidebar-item a:hover {
-    color: #0086b3; }
+    color: #003555; }
 
 .sidebar-item.selected a {
-  color: #0086b3; }
+  color: #003555; }
 
 .sidebar-item ul {
   margin-left: 16px;

@@ -2,9 +2,10 @@
 date = "2000-01-01T00:00:00+00:02"
 title = "Song Artwork"
 description = "Handle, edit and manipulate a Songs Artwork"
+toc = true
 +++
 
-# List related Artwork
+## List related Artwork
 
 To keep the API consistent. This endpoint is returning `Array<Artwork>`. The max length is 1.
 
@@ -34,9 +35,11 @@ GET /api/songs/{songID}/artwork
 ```
 
 
-# Upload a new Artwork for given Song
+## Upload a new Artwork for given Song
 
 Request must be of type `form-data` and must contain `file`. You can append your Form with `alt` to create a alt-tag for the Artwork on-the-fly.
+
+If there is already an Artwork related to this Song, **the Relation is overriden.**
 
 ```
 POST /api/songs/{songID}/artwork
@@ -61,4 +64,12 @@ Attributes like `mimeType`, `size`, `width` and `height` are extracted from the 
     "createdAt": "2020-10-09T08:46:13.233113+02:00",
     "updatedAt": "2020-10-09T08:46:13.233113+02:00"
 }
+```
+
+## Delete related Artwork
+
+This Method deletes the Relation between the Artwork and Song. Additional the Artwork will be SoftDeleted from Database and Filestorage.
+
+```
+DELETE /api/songs/{songID}/artwork
 ```

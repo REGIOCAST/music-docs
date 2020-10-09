@@ -1,4 +1,6 @@
 $code-background: #F5F7F9;
+$code-color: #be1050;
+$code-border-color:#dddddd;
 $pre-background: #2D3748;
 
 $h1-font-size: 24px;
@@ -66,7 +68,7 @@ $h3-font-weight: 400;
     }
 
     a, a:visited {
-        color: $harness-blue-dark;
+        color: $regiocast-blue-dark;
         text-decoration: none;
         // outline: none;
 
@@ -95,10 +97,10 @@ $h3-font-weight: 400;
 
         font-size: 14px;
         border-radius: 4px;
-        color: #3c4257;
+        color: $code-color;
         font-weight: 400;
         background: #f7fafc;
-        border: 1px solid #e3e8ee;
+        border: 1px solid $code-border-color;
         padding: 0px 3px;
         box-sizing: border-box;
         line-height: 18px;
