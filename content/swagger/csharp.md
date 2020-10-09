@@ -2,7 +2,6 @@
 date = "2000-01-01T00:00:00+00:02"
 title = "C#"
 description = "Generate your SDK with the help of Swagger"
-toc = true
 +++
 
 Music generates documentation with the help of Swagger. You can use the [swagger-codegen](https://github.com/swagger-api/swagger-codegen) tool from the swagger project to generate:
