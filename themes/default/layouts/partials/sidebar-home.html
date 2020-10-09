@@ -1,5 +1,6 @@
 <div class="sidebar">
-    <a class="logo" href="{{ relURL .Site.BaseURL }}" aria-label="Home">Docs</a>
+    {{- partial "logo" . -}}
+    
 
     <div class="menu" aria-hidden="true">
         <button class="close"></button>
@@ -7,7 +8,6 @@
 
     <nav>
         <ul>
-            <li class="sidebar-item selected"><a href="{{ .URL }}" class="selected">Home</a></li>
             <li class="category separator">Installation</li>
             <li class="sidebar-item"><a href="/music-docs/server/overview">Overview</a></li>
             <li class="category separator">Reference</li>

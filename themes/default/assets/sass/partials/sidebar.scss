@@ -1,35 +1,40 @@
-$sidebar-width: 250px;
+$sidebar-bg: #142432;
 
 .sidebar {
     overflow-y: auto;
     overflow-x: hidden;
-    background: $white;
+    background: $sidebar-bg;
     border-right: 1px solid $gray-300;
 
     nav {
-        padding-left: $p-6;  
         padding-bottom: $p-12;
         padding-top: $p-3;
+
+        > ul {
+            padding-left: $p-6;
+            padding-right: $p-6;  
+        }
     }
 
     .category {
-        font-size: 13px;
+        font-size: $text-lg;
         text-transform: uppercase;
         letter-spacing: 0.75px;
         font-weight: 500;
         font-family: Kanit;
-        color: $gray-900;
-        margin: $m-5 $m-0 $m-1 $m-0;
+        color: $gray-200;
+        padding-bottom: $p-2;
+        margin: $m-5 $m-0 $m-2 $m-0;
     }
 
     .section-header {
-        color: $gray-900;
+        color: $gray-100;
         display: block;
         letter-spacing: 0.8px;
         line-height: $h-12;
         height: $h-12;
         margin: $m-3 $m-0 $m-1;
-        padding: $p-0;
+        padding: $p-2 $p-6;
 
         font-size: $text-3xl;
         font-weight: 400;
@@ -39,13 +44,14 @@ $sidebar-width: 250px;
     .separator {
         margin-top: $m-5;
         padding-top: $p-5;
-        border-top: 1px solid $gray-300;
+        border-top: 1px solid lighten($sidebar-bg, 10);
     }
 
     .back {
         background: url(/music-docs/icons/back.svg) no-repeat left top;
         background-size: 13px 13px;
         padding: $p-0;
+        margin-left: $p-6;
         padding-left: $p-4;
         display: block;
         color: $gray-600;
@@ -59,21 +65,21 @@ $sidebar-width: 250px;
 
 .sidebar-item {
     a {
-        color: $gray-600;
+        color: $gray-400;
         display: block;
-        font-size: $text-sm;
+        font-size: $text-base;
         padding: $p-1 $p-4 $p-1 0;
         line-height: $leading-tight;
         position: relative;
         text-decoration: none;
 
         &:hover {
-            color: $regiocast-blue-dark;
+            color: lighten($regiocast-blue, 20);
         }
     }
 
     &.selected a {
-        color: $regiocast-blue-dark;
+        color: lighten($regiocast-blue, 20);
     }
 
     ul {
@@ -86,23 +92,24 @@ $sidebar-width: 250px;
     }
 }
 
-.sidebar .logo {
-    background: url(/logo.svg) no-repeat 24px center;
-    background-size: 27px 27px;
-    height: 56px;
-    margin-bottom: 26px;
+.sidebar header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: $p-8;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    padding-left: 64px;
-    font-weight: 700;
-    font-size: 20px;
-    font-family: Kanit;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $gray-900;
-    -webkit-font-smoothing: antialiased;
-    user-select: none;
+    
+
+    .logo {
+        font-size: $text-3xl;
+        font-weight: 700;
+        text-decoration: none;
+        color: $white;
+        -webkit-font-smoothing: antialiased;
+        user-select: none;
+    }
 }
 
 @media screen and

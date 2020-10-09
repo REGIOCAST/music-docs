@@ -114,7 +114,7 @@ main {
     grid-area: outline; }
 
 main, footer {
-  margin-left: 250px; }
+  margin-left: 350px; }
 
 footer {
   box-sizing: border-box;
@@ -127,7 +127,7 @@ footer {
   top: 0px;
   bottom: 0px;
   left: 0px;
-  width: 250px; }
+  width: 350px; }
 
 @media only screen and (max-width: 1200px) {
   main aside {
@@ -620,6 +620,12 @@ aside {
     letter-spacing: 0.75px;
     font-weight: 500;
     font-family: Kanit; }
+  aside.toc {
+    display: flex;
+    justify-content: flex-end; }
+    aside.toc > nav {
+      width: 100%;
+      max-width: 450px; }
 
 aside #TableOfContents a, aside #TableOfContents a:visited {
   display: block;
@@ -727,39 +733,43 @@ footer section {
 .sidebar {
   overflow-y: auto;
   overflow-x: hidden;
-  background: #fff;
+  background: #142432;
   border-right: 1px solid #e2e8f0; }
   .sidebar nav {
-    padding-left: 24px;
     padding-bottom: 48px;
     padding-top: 12px; }
+    .sidebar nav > ul {
+      padding-left: 24px;
+      padding-right: 24px; }
   .sidebar .category {
-    font-size: 13px;
+    font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 0.75px;
     font-weight: 500;
     font-family: Kanit;
-    color: #1a202c;
-    margin: 20px 0px 4px 0px; }
+    color: #edf2f7;
+    padding-bottom: 8px;
+    margin: 20px 0px 8px 0px; }
   .sidebar .section-header {
-    color: #1a202c;
+    color: #f7fafc;
     display: block;
     letter-spacing: 0.8px;
     line-height: 48px;
     height: 48px;
     margin: 12px 0px 4px;
-    padding: 0px;
+    padding: 8px 24px;
     font-size: 30px;
     font-weight: 400;
     font-family: Kanit; }
   .sidebar .separator {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid #e2e8f0; }
+    border-top: 1px solid #233e56; }
   .sidebar .back {
     background: url(/music-docs/icons/back.svg) no-repeat left top;
     background-size: 13px 13px;
     padding: 0px;
+    margin-left: 24px;
     padding-left: 16px;
     display: block;
     color: #718096;
@@ -770,18 +780,18 @@ footer section {
     text-decoration: none; }
 
 .sidebar-item a {
-  color: #718096;
+  color: #cbd5e0;
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   padding: 4px 16px 4px 0;
   line-height: 1.25;
   position: relative;
   text-decoration: none; }
   .sidebar-item a:hover {
-    color: #003555; }
+    color: #0093ee; }
 
 .sidebar-item.selected a {
-  color: #003555; }
+  color: #0093ee; }
 
 .sidebar-item ul {
   margin-left: 16px;
@@ -790,23 +800,21 @@ footer section {
 .sidebar-item.expand ul {
   display: block; }
 
-.sidebar .logo {
-  background: url(/logo.svg) no-repeat 24px center;
-  background-size: 27px 27px;
-  height: 56px;
-  margin-bottom: 26px;
+.sidebar header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32px;
   display: flex;
-  align-items: center;
-  padding-left: 64px;
-  font-weight: 700;
-  font-size: 20px;
-  font-family: Kanit;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #1a202c;
-  -webkit-font-smoothing: antialiased;
-  user-select: none; }
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .sidebar header .logo {
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    user-select: none; }
 
 @media screen and (max-width: 800px), (max-device-width: 800px) {
   .sidebar {
@@ -817,8 +825,8 @@ footer section {
     z-index: 3;
     top: 0px;
     bottom: 0px;
-    left: -251px;
-    width: 250px; }
+    left: -351px;
+    width: 350px; }
     .sidebar.open {
       left: 0px;
       display: block; }
@@ -847,7 +855,7 @@ footer section {
   border-bottom: 1px solid #e2e8f0;
   height: 55px;
   box-sizing: border-box;
-  padding-left: 250px; }
+  padding-left: 350px; }
   .search input {
     border: none;
     box-sizing: border-box;

@@ -34,7 +34,6 @@ main {
     grid-column-gap: 48px;
     padding: 42px 48px 0px 64px;
 
-
     section header {
       grid-area: content;
       max-width: 600px;
@@ -54,7 +53,7 @@ main {
 }
 
 main, footer {
-  margin-left: 250px;
+  margin-left: $sidebar-width;
 }
 
 footer {
@@ -69,7 +68,7 @@ footer {
   top: 0px;
   bottom: 0px;
   left: 0px;
-  width: 250px;
+  width: $sidebar-width;
 }
 
 // on smaller screens the table of contents is hidden due

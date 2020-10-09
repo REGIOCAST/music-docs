@@ -19,6 +19,15 @@ aside {
         font-weight: 500;
         font-family: Kanit;
       }
+    &.toc {
+        display: flex;
+        justify-content: flex-end;
+
+        > nav {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
 }
 
 aside #TableOfContents {
