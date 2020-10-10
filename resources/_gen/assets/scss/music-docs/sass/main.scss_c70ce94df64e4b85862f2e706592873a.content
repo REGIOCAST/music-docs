@@ -409,11 +409,16 @@ body.home h2 {
     margin-bottom: 24px;
     overflow: hidden;
     overflow-y: hidden;
-    overflow-x: auto; }
+    overflow-x: auto;
+    box-sizing: border-box; }
     .content > ol > li > pre > code pre, .content > ol > li > pre > code code, .content > ul > li > pre > code pre, .content > ul > li > pre > code code, .content > pre > code pre, .content > pre > code code,
     .content .highlight pre,
     .content .highlight code {
-      background: #2D3748; }
+      box-sizing: border-box; }
+    .content > ol > li > pre > code pre, .content > ul > li > pre > code pre, .content > pre > code pre,
+    .content .highlight pre {
+      background: #2D3748 !important;
+      padding: 12px; }
   .content > pre > code {
     padding: 12px; }
   .content > ul > li > pre > code, .content > ol > li > pre > code {
