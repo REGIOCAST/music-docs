@@ -284,7 +284,6 @@ body.home h2 {
     font-size: 16px; }
   .content .reference .icon {
     margin-right: 16px;
-    background: url("/music-docs/icons/arrow-right.svg") no-repeat center center;
     width: 24px; }
   .content .reference:hover {
     border-color: #003555; }
@@ -578,8 +577,8 @@ body.home h2 {
   .content ol li:before {
     counter-increment: listitem;
     content: counter(listitem);
-    background: #e2e8f0;
-    color: #718096;
+    background: #005488;
+    color: #fff;
     display: inline-block;
     font-size: 12px;
     font-weight: 500;
@@ -733,7 +732,7 @@ footer section {
 .sidebar {
   overflow-y: auto;
   overflow-x: hidden;
-  background: #142432;
+  background: #005488;
   border-right: 1px solid #e2e8f0; }
   .sidebar nav {
     padding-bottom: 48px;
@@ -764,20 +763,25 @@ footer section {
   .sidebar .separator {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid #233e56; }
+    border-top: 1px solid #0074bb; }
   .sidebar .back {
-    background: url(/music-docs/icons/back.svg) no-repeat left top;
-    background-size: 13px 13px;
-    padding: 0px;
-    margin-left: 24px;
-    padding-left: 16px;
-    display: block;
-    color: #718096;
-    line-height: 14px;
-    font-size: 14px;
-    font-family: Kanit;
-    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 24px;
+    color: #e2e8f0;
     text-decoration: none; }
+    .sidebar .back:hover {
+      color: #a0aec0; }
+    .sidebar .back > svg {
+      width: 16px; }
+    .sidebar .back > span {
+      padding-left: 8px;
+      line-height: 14px;
+      font-size: 14px;
+      font-family: Kanit;
+      font-weight: 400; }
 
 .sidebar-item a {
   color: #cbd5e0;
