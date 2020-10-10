@@ -85,14 +85,16 @@ $sidebar-bg: $regiocast-blue;
         line-height: $leading-tight;
         position: relative;
         text-decoration: none;
+        border-bottom: transparent 1px solid;
 
         &:hover {
-            color: lighten($regiocast-blue, 20);
+            color: $regiocast-orange;
         }
     }
 
     &.selected a {
-        color: lighten($regiocast-blue, 20);
+        color: $regiocast-orange;
+        border-color: transparent;
     }
 
     ul {

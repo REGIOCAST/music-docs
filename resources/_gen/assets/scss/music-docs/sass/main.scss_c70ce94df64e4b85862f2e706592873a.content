@@ -790,12 +790,14 @@ footer section {
   padding: 4px 16px 4px 0;
   line-height: 1.25;
   position: relative;
-  text-decoration: none; }
+  text-decoration: none;
+  border-bottom: transparent 1px solid; }
   .sidebar-item a:hover {
-    color: #0093ee; }
+    color: #efa328; }
 
 .sidebar-item.selected a {
-  color: #0093ee; }
+  color: #efa328;
+  border-color: transparent; }
 
 .sidebar-item ul {
   margin-left: 16px;
