@@ -1,0 +1,1092 @@
+{
+	"info": {
+		"_postman_id": "1e0b412a-18a7-402d-ad26-99c637f91b0e",
+		"name": "music-api",
+		"description": "Music API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "artist",
+			"item": [
+				{
+					"name": "Artist CRUD",
+					"item": [
+						{
+							"name": "\"/\" Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Awesome brady\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/artists",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"artists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/artists",
+									"port": "8080",
+									"path": [
+										"api",
+										"artists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Lois Griffin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/artists/4cd6ce08-ec45-4504-b4d6-41f9df52df03",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"artists",
+										"4cd6ce08-ec45-4504-b4d6-41f9df52df03"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Find",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/artists/1607d150-861c-4782-8c1b-abe58254373b",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"artists",
+										"1607d150-861c-4782-8c1b-abe58254373b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/artists/8ea523d6-8ab1-490c-939c-66e70aac7b50",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"artists",
+										"8ea523d6-8ab1-490c-939c-66e70aac7b50"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "albums",
+					"item": [
+						{
+							"name": "\"/{artist}/albums\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/artists/1607d150-861c-4782-8c1b-abe58254373b/albums",
+									"port": "8080",
+									"path": [
+										"api",
+										"artists",
+										"1607d150-861c-4782-8c1b-abe58254373b",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{artist}/albums\" CreateOrLink",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"b1af16e3-4cad-4a81-a35a-9c6208f57195\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/artists/1607d150-861c-4782-8c1b-abe58254373b/albums",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"artists",
+										"1607d150-861c-4782-8c1b-abe58254373b",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{artist}/albums/{albumID}\" Delete Album Relation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/artists/7833d476-d89b-48d8-b232-dd3db7013391/albums/68a27f48-4394-4edd-99f6-8f467013166b",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"artists",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"albums",
+										"68a27f48-4394-4edd-99f6-8f467013166b"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "members",
+					"item": [
+						{
+							"name": "\"/{artist}/members\" CreateOrLink",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/artists/7833d476-d89b-48d8-b232-dd3db7013391/members",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"artists",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"members"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{artist}/members\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/artists/1607d150-861c-4782-8c1b-abe58254373b/members",
+									"port": "8080",
+									"path": [
+										"api",
+										"artists",
+										"1607d150-861c-4782-8c1b-abe58254373b",
+										"members"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "songs",
+					"item": [
+						{
+							"name": "\"/{artist}/songs\" CreateOrLink",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/artists/7833d476-d89b-48d8-b232-dd3db7013391/songs",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"artists",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"songs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{artist}/songs\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/artists/1607d150-861c-4782-8c1b-abe58254373b/songs",
+									"port": "8080",
+									"path": [
+										"api",
+										"artists",
+										"1607d150-861c-4782-8c1b-abe58254373b",
+										"songs"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "album",
+			"item": [
+				{
+					"name": "album CRUD",
+					"item": [
+						{
+							"name": "\"/\" Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"One Hot Minute 2\",\n    \"recordLabel\": \"Warner Bros.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/albums",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/albums",
+									"port": "8080",
+									"path": [
+										"api",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"copyright\": \"REGIOCAST\",\n        \"isComplete\": true,\n        \"isSingle\": true,\n        \"name\": \"Peter Griffin\",\n        \"recordLabel\": \"FOX\",\n        \"trackCount\": 1\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/albums/1ab0c3d3-c362-4556-b3e5-09780c39d66c",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"1ab0c3d3-c362-4556-b3e5-09780c39d66c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Find",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/albums/7833d476-d89b-48d8-b232-dd3db7013391",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"7833d476-d89b-48d8-b232-dd3db7013391"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/albums/1ab0c3d3-c362-4556-b3e5-09780c39d66c",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"1ab0c3d3-c362-4556-b3e5-09780c39d66c"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tracks",
+					"item": [
+						{
+							"name": "\"/{album}/tracks\" CreateOrLink",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/albums/7833d476-d89b-48d8-b232-dd3db7013391/tracks",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"tracks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{album}/tracks\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/albums/7833d476-d89b-48d8-b232-dd3db7013391/albums",
+									"port": "8080",
+									"path": [
+										"api",
+										"albums",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{album}/tracks/{trackID}\" Delete Track Relation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/albums/7833d476-d89b-48d8-b232-dd3db7013391/tracks/68a27f48-4394-4edd-99f6-8f467013166b",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"tracks",
+										"68a27f48-4394-4edd-99f6-8f467013166b"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "91aa24d6-1522-43d2-9bca-66b1a06f96fd",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "add6bca3-fd1a-411c-964a-becc370a53ce",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "artists",
+					"item": [
+						{
+							"name": "\"/{album}/artists\" CreateOrLink",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/albums/7833d476-d89b-48d8-b232-dd3db7013391/artists",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"artists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{album}/artists\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/albums/7833d476-d89b-48d8-b232-dd3db7013391/artists",
+									"port": "8080",
+									"path": [
+										"api",
+										"albums",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"artists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{album}/artists/{artist}\" Delete Artist Relation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/albums/7833d476-d89b-48d8-b232-dd3db7013391/artists/572811a5-a202-470b-abd6-2e55ddc555e3",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"albums",
+										"7833d476-d89b-48d8-b232-dd3db7013391",
+										"artists",
+										"572811a5-a202-470b-abd6-2e55ddc555e3"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "CRUD operatings for album",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "song",
+			"item": [
+				{
+					"name": "Song CRUD",
+					"item": [
+						{
+							"name": "\"/\" Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"composerName\": \"Red Hot Chili Peppers\",\n    \"discNumber\": 1,\n    \"durationInMillis\": 20000,\n    \"isrc\": \"USQY51021557\",\n    \"name\": \"Aeroplane\",\n    \"releaseDate\": \"1996-03-14T10:27:31+00:00\",\n    \"trackNumber\": 1,\n    \"albumId\": \"7833d476-d89b-48d8-b232-dd3db7013391\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/songs",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"songs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/songs",
+									"port": "8080",
+									"path": [
+										"api",
+										"songs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"albumId\": \"8d59b381-484e-421e-99d0-1e331f1f810f\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/songs/b38db132-c4b7-4123-8107-abbb88b7d921",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"songs",
+										"b38db132-c4b7-4123-8107-abbb88b7d921"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Find",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/songs/68a27f48-4394-4edd-99f6-8f467013166b",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/\" Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/songs/b38db132-c4b7-4123-8107-abbb88b7d921",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"songs",
+										"b38db132-c4b7-4123-8107-abbb88b7d921"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c7678c5b-af3d-4486-9acd-7729499ce738",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e204d0ef-f9aa-45b4-b199-6bd6facee81b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Artwork",
+					"item": [
+						{
+							"name": "\"/{id}/artwork\" Create Artwork",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/jkoehn/Desktop/iris-refactor.jpg"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/artwork",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"artwork"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{id}/artwork\"List Artwork",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/artwork",
+									"port": "8080",
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"artwork"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{id}/artwork\" Delete Artwork",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/artwork",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"artwork"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Nested Artwork Resources",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Artists",
+					"item": [
+						{
+							"name": "\"/{id}/artists\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/artists",
+									"port": "8080",
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"artists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{id}/artists\" CreateOrLink",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"1607d150-861c-4782-8c1b-abe58254373b\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": ":8080/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/artists",
+									"port": "8080",
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"artists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{id}/artists/{artistID}\" Delete Artist Relation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/artists/1607d150-861c-4782-8c1b-abe58254373b",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"artists",
+										"1607d150-861c-4782-8c1b-abe58254373b"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "All related Artists",
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Album",
+					"item": [
+						{
+							"name": "\"/{id}/albums\" CreateOrLink",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"name\": \"i am a single\",\n   \"isSingle\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": ":8080/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/albums",
+									"port": "8080",
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{id}/albums\" List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ":8080/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/albums",
+									"port": "8080",
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"albums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"/{id}/albums/{albumID}\" Delete Album Relation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/api/songs/68a27f48-4394-4edd-99f6-8f467013166b/albums/132327e7-8613-425a-8500-3bbf7792f7c1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"api",
+										"songs",
+										"68a27f48-4394-4edd-99f6-8f467013166b",
+										"albums",
+										"132327e7-8613-425a-8500-3bbf7792f7c1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "The Song API. Allows CRUD Operations",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "artwork",
+			"item": [
+				{
+					"name": "\"/\" Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/jkoehn/Desktop/Screenshot 2020-10-07 at 09.23.53.png"
+								},
+								{
+									"key": "alt",
+									"value": "lalaland",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/artworks",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "\"/\" List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ":8080/api/artworks",
+							"port": "8080",
+							"path": [
+								"api",
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "\"/\" Find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/artworks/f7640b4e-7391-43cc-ae86-716c04d15b01",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"artworks",
+								"f7640b4e-7391-43cc-ae86-716c04d15b01"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b1b0d254-9689-4c36-8ce4-97d3532995e8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "41a2e6dd-537b-46a0-9203-aae826037599",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f1125434-a647-408e-85ca-8f025d2ecb20",
+			"key": "domain",
+			"value": ":8080"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
