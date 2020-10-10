@@ -78,3 +78,15 @@ GET /api/artists/{artistID}/albums
     }
 ]
 ```
+
+
+## Delete Album Relation
+
+You are not allowed to `DELETE` the Album at this endpoint.
+This endpoint handles the Relationship between an existing Album and an Artist.
+
+```
+GET /api/artists/{artistID}/albums/{albumID}
+```
+
+*Response* is `204 No Content`

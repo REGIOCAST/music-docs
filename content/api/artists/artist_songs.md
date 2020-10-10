@@ -81,3 +81,14 @@ GET /api/artists/{artistID}/songs
     }
 ]
 ```
+
+## Delete Song Relation
+
+You are not allowed to `DELETE` the Song at this endpoint.
+This endpoint handles the Relationship between an existing Song and an Artist.
+
+```
+GET /api/artists/{artistID}/songs/{songID}
+```
+
+*Response* is `204 No Content`

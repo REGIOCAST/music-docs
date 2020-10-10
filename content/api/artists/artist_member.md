@@ -66,3 +66,14 @@ GET /api/artists/{artistID}/members
     }
 ]
 ```
+
+## Delete Member Relation
+
+You are not allowed to `DELETE` the Member at this endpoint.
+This endpoint handles the Relationship between an existing Member and an Artist.
+
+```
+GET /api/artists/{artistID}/members/{memberID}
+```
+
+*Response* is `204 No Content`
