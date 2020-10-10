@@ -1,4 +1,5 @@
-$sidebar-bg: #142432;
+//$sidebar-bg: #142432;
+$sidebar-bg: $regiocast-blue;
 
 .sidebar {
     overflow-y: auto;
@@ -48,18 +49,30 @@ $sidebar-bg: #142432;
     }
 
     .back {
-        background: url(/music-docs/icons/back.svg) no-repeat left top;
-        background-size: 13px 13px;
-        padding: $p-0;
-        margin-left: $p-6;
-        padding-left: $p-4;
-        display: block;
-        color: $gray-600;
-        line-height: $text-sm;
-        font-size: $text-sm;
-        font-family: Kanit;
-        font-weight: 400;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: $p-6;
+        color: $gray-300;
+        
         text-decoration: none;
+
+        &:hover {
+            color: $gray-500;
+        }
+
+        > svg {
+            width: 16px;
+        }
+
+        > span {
+            padding-left: $p-2;
+            line-height: $text-sm;
+            font-size: $text-sm;
+            font-family: Kanit;
+            font-weight: 400;
+        }
     }
 }
 

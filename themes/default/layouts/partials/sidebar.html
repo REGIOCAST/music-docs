@@ -10,7 +10,10 @@
     </div> -->
 
     <nav>
-        <a href="/music-docs" class="back">Home</a>
+        <a href="/music-docs" class="back">
+            {{- partial "backicon" . -}}
+            <span>Home</span>
+        </a>
         {{ $expand := .Params.expand }}
         {{ $selected := . }}
         {{ $section := .Site.GetPage "section" .Section }}

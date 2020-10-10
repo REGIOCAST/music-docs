@@ -2,6 +2,8 @@
 {{ $title := or (.Get 1) ($page.Title) }}
 
 <a href="{{ $page.URL }}" class="reference">
-    <span class="icon"></span>
+    <span class="icon">
+        {{- partial "arrow-right" . -}}
+    </span>
     <span class="name">{{ $title }}</span>
 </a>
