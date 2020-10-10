@@ -10,4 +10,6 @@ description: |
   Overview of API access to manage album resources.
 ---
 
+Postman Collection
+
 {{< cards >}}
