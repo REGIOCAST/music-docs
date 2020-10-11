@@ -40,7 +40,10 @@ While testing, the built-in SQLite Database is fine. But in a production environ
 
 In your Apps Dashboard select `Components` and `+ Create Component`. From the Dropdown select `Database`. Select a name and attach it to your Stack.
 
-The Database Configuration is available here: [Database](../../storage/database)
+```
+MUSIC_DATABASE_DATASOURCE=postgres
+MUSIC_DATABASE_DATASOURCE=${db.DATABASE_URL}
+```
 
 ### Healthcheck
 
