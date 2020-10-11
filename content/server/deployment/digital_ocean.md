@@ -43,7 +43,12 @@ In your Apps Dashboard select `Components` and `+ Create Component`. From the Dr
 ```
 MUSIC_DATABASE_DATASOURCE=postgres
 MUSIC_DATABASE_DATASOURCE=${db.DATABASE_URL}
+MUSIC_DATABASE_CONNECTIONS=11
 ```
+
+On a node with 1 GB of RAM Digital Ocean allows up to 22 Connections. To prevent issues on Blue/Green deployments set this to half.
+
+On a Node with 4 GB of RAM with a maximum of 97 Connections you can set this value to 45.
 
 ### Healthcheck
 

@@ -20,7 +20,10 @@ Music supports postgres 9.6 and higher as the database engine. The below example
 ```
 MUSIC_DATABASE_DRIVER=postgres
 MUSIC_DATABASE_DATASOURCE=postgres://root:password@1.2.3.4:5432/postgres?sslmode=disable
+MUSIC_DATABASE_CONNECTIONS=11
 ```
+
+`MUSIC_DATABASE_CONNECTIONS` should be at max the half of the possible max_connections in your postgres config, to prevent connection issues on Blue/Green deployments.
 
 # MySQL
 
