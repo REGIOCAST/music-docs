@@ -2,7 +2,7 @@
 date: 2000-01-01T00:00:00+00:00
 title: Storage
 author: juliankoehn
-weight: 4
+weight: 2
 description: |
   Music-Server Storage
 ---
