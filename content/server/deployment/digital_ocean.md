@@ -49,4 +49,13 @@ MUSIC_DATABASE_DATASOURCE=${db.DATABASE_URL}
 
 In your AppDashboard on the Components, view click on Health Checks => `Edit`. Select `HTTP` and enter `/health` as Path.
 
-That's it. 
+That's it.
+
+
+## Staging and Live environments
+
+Repeat the App Platform Setup for your live environment. In the `App Platform Settings` for your live environment change `Deploy Settings` to `Autodeploy code changes: disabled`
+
+- Auto deploy to Staging
+- Test your Staging Application
+- Deploy to Live
