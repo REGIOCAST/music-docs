@@ -19,5 +19,10 @@
 <!-- code to load the server index -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript">
-
+    docsearch({
+        apiKey: "503d23f6d5ad2c75122a2b94ea133811",
+        indexName: "regiocast-music",
+        inputSelector: '#search',
+        debug: {{- if ne .Site.HomeAbsURL "http://localhost:1313/" }}true{{ else }}false{{ end }}
+});
 </script>
